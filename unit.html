@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>unit converter</title>
+	<style>
+		body {
+  padding-top: 20px;
+  background-color: #202020;
+  background-image: url('https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer/04/8e/048ed839-a581-48af-a0ae-fac6fec00948/gettyimages-168346757_web.jpg');
+  background-repeat: no-repeat;
+  backface-visibility: center center; 
+ background-attachment: fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+h1 {
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 
+  font-weight: 700;
+  color: white;
+  text-align: center;
+}
+.h1
+{
+margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+	max-width: 300px;
+	padding: 30px;
+	border-radius: 10px;
+	background-color:rgba(0, 0, 0, 0.2);
+	box-shadow: 0 10px 10px rgba(0,0,0,0.2);	
+}
+
+.converter-wrapper {
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+	max-width: 800px;
+	padding: 30px;
+	border-radius: 10px;
+	box-sizing: border-box;
+	
+}
+P{
+	color: white;
+}
+	.btns{
+         margin-top: 20px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         flex-wrap: wrap;
+         gap: 10px;
+	}
+
+.converter-wrapper input {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+  height: 40px;
+  box-sizing: border-box;
+}
+
+.converter-wrapper span {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.converter-wrapper span select {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #99ffff;
+  font-size: inherit;
+  padding: 10px;
+  width: 100%;
+  border: 0;
+  margin: 0;
+  border-radius: 0px;
+  text-indent: 0.01px;
+  text-overflow: '';
+  -webkit-appearance: none;
+}
+
+.converter-wrapper span::before,
+.converter-wrapper span::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.converter-wrapper span::after {
+  content: "\25BC";
+  height: 1em;
+  font-size: .625em;
+  line-height: 1;
+  right: 1.5em;
+  top: 50%;
+  margin-top: -.5em;
+  color:#99ffff;
+}
+
+.converter-wrapper span::before { 
+  width: 2.5em;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 0;
+  background-color:rgba(204, 255, 153,0.6);
+}
+
+.converter-side-a,
+.converter-side-b {
+  float: left;
+  margin-top: 10px;
+  box-sizing: border-box;
+  width: 45%;
+}
+
+.converter-equals {
+  float: left;
+  box-sizing: border-box;
+  width: 10%;
+  color: #FFF;
+  font-size: 2.4em;
+  line-height: 0;
+  text-align: center;
+}
+
+.converter-side-a {
+  padding-right: 10px;
+}
+
+.converter-side-b {
+  padding-left: 10px;
+}
+
+	</style>
+</head>
+<body>
+	<div class="h1">
+  <h1>Unit <br>CONVERTER</h1>
+</div>
+<div class="converter-wrapper">
+  <form name="property_form">
+    <span>
+      <select class="select-property" name="the_menu" size=1 onChange="UpdateUnitMenu(this, document.form_A.unit_menu); UpdateUnitMenu(this, document.form_B.unit_menu)">
+      </select>
+    </span>
+  </form>
+
+  <div class="converter-side-a">
+    <form name="form_A" onSubmit="return false">
+      <input type="text" class="numbersonly" name="unit_input" maxlength="20" value="0" onKeyUp="CalculateUnit(document.form_A, document.form_B)">
+      <span>
+        <select name="unit_menu" onChange="CalculateUnit(document.form_B, document.form_A)">
+        </select>
+      </span>
+    </form>
+  </div>
+  
+ <div class="converter-equals">
+   <p>=</p>
+ </div>
+
+  <div class="converter-side-b">
+    <form name="form_B" onSubmit="return false">
+      <input type="text" class="numbersonly" name="unit_input" maxlength="20" value="0" onkeyup="CalculateUnit(document.form_B, document.form_A)">
+      <span>
+        <select name="unit_menu" onChange="CalculateUnit(document.form_A, document.form_B)">
+        </select>
+      </span>
+    </form>
+ 
+   <script type="text/javascript" src="unit.js"></script>
+</div>
+</div>
+</div>
+</body>
+</html>
